@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos personalizados */
+.text-neon {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500;
+}
+
+ 
