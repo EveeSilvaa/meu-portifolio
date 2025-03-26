@@ -23,7 +23,7 @@ export default function Crachá() {
   }, [x, y]);
 
   return (
-    <div className="absolute left-0 top-0"> {/* Alterado de 'fixed' para 'absolute' */}
+    <div className="absolute left-0 top-0 md:w-40"> {/* Alterado de 'fixed' para 'absolute' */}
       <motion.div
         className="relative w-60"
         style={{ x, y, rotateX, rotateY }}
@@ -32,7 +32,7 @@ export default function Crachá() {
         transition={{ type: 'spring', stiffness: 100, delay: 0.5 }}
       >
         <img
-          src="src/assets/crachá.png"
+          src="src/assets/cracha.png"
           alt="Crachá"
           className="w-full h-full object-cover rounded-lg shadow-2xl"
         />
