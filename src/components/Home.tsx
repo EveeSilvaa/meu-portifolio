@@ -1,33 +1,43 @@
-import Crachá from '../components/Crachá'; // Importe o componente Crachá
+import Crachá from "./Crachá";
 
 export default function Home() {
-  const skills: string[] = [
-    "React", 
-    "Node.js", 
-    "TypeScript",
-    "CSS", 
-    "HTML", 
-    "Figma", 
-    "Python", 
-    "Java", 
-    "JavaScript", 
-    "Tailwind CSS",
-    "MySQL",
-    "Bootstrap",
-  ];
+  const skills: string[] = ["React", "Node.js", "TypeScript", "CSS", "HTML", "Figma", "Python", "Java", "JavaScript"];
 
   return (
     <>
-      {/* Sobre Mim */}
-      <div id="about" className="py-20 bg-black relative"> {/* Adicione 'relative' aqui */}
-        <Crachá /> {/* Adicione o Crachá dentro da seção About */}
+      {/* Seção About Me - Versão Aprimorada */}
+      <div id="about" className="py-20 bg-black relative">
+        <Crachá />
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-white text-right">About me</h2>
-          <div className="mt-8 max-w-2xl ml-auto text-gray-300">
-            <p className="text-right text-lg">
-              I am a web developer passionate about creating innovative and functional solutions.
-              I have experience with React, Node.js and interface design.
-              In addition to other skills acquired through projects, work and studies!
+          <h2 className="text-4xl font-bold text-white text-right mb-8">About Me</h2>
+          
+          <div className="max-w-2xl ml-auto text-gray-300 space-y-4 text-right">
+            <p className="text-lg leading-relaxed">
+            I am a passionate full-stack developer focused on creating innovative and user-centric digital solutions. 
+            With experience in modern web technologies such as React, Node.js, Java and TypeScript.
+            </p>
+
+            <ul className="space-y-2 text-purple-100">
+              <li className="flex items-start justify-end gap-2">
+                <span>🛠️</span>
+                <span>Developing performant web applications with clean code</span>
+              </li>
+              <li className="flex items-start justify-end gap-2">
+                <span>🎨</span>
+                <span>Crafting intuitive UI/UX designs with Figma</span>
+              </li>
+              <li className="flex items-start justify-end gap-2">
+                <span>🌐</span>
+                <span>Implementing responsive cross-device designs</span>
+              </li>
+              <li className="flex items-start justify-end gap-2">
+                <span>🔄</span>
+                <span>Would like an opportunity to collaborate in agile teams for impactful projects</span>
+              </li>
+            </ul>
+
+            <p className="text-lg mt-6 italic text-purple-400">
+              "Bringing problem-solving creativity and continuous learning to every project."
             </p>
           </div>
         </div>

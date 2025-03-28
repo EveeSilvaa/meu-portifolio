@@ -1,6 +1,7 @@
 // src/sections/Projects.tsx
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'; 
 
+// vou adicionar mais projetos conforme for aprimorando meus estudos
 export default function Projects() {
   const projects = [
     {
@@ -25,18 +26,17 @@ export default function Projects() {
       deployUrl: "https://formulario-login-hazel.vercel.app/", 
     },
     {
-      title: "Login Page",
+      title: "Animation Login",
       description: "This project is an animated login page built using HTML and CSS. It features a simple and modern interface with smooth transitions and animations for a better user experience.",
       image: "src/assets/login page.png",
       repoUrl: "https://github.com/EveeSilvaa/Animation-login?tab=readme-ov-file",
-      deployUrl: ""
+      deployUrl: "https://animation-login-theta.vercel.app/"
     },
     {
       title: "Pokedex Python",
       description: "This project is a fun and interactive Pokémon viewer built using Python and Tkinter. It’s a great way to explore and learn more about your favorite Pokémon while practicing Python programming! 🌟",
       image: "src/assets/pokedex.jpeg",
       repoUrl: "https://github.com/EveeSilvaa/pokedex-python",
-      deployUrl: ""
     },
   ];
 
