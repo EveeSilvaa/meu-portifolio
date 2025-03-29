@@ -45,14 +45,14 @@ export default function Links({ darkMode }: { darkMode: boolean }) {
       id="links" 
       className={`py-8 transition-colors duration-300 ${darkMode ? 'bg-gray-900' : 'bg-gray-100'}`}
     >
-      <div className="container mx-auto px-4">
+      <div className="container text-center mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className={`text-2xl md:text-3xl font-bold mb-6 ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}
         >
-          Conecte-se Comigo
+          Connect With Me
         </motion.h2>
 
         <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-8">
@@ -76,10 +76,10 @@ export default function Links({ darkMode }: { darkMode: boolean }) {
         </div>
 
         <div className={`mt-8 text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-          <p className="mb-2">© {new Date().getFullYear()} Maria Evellyn. Todos os direitos reservados.</p>
+          <p className="mb-2">© {new Date().getFullYear()} Maria Evellyn. All rights reserved.</p>
           
           <div className="flex flex-col items-center">
-            <p className="mb-2">Desenvolvido com:</p>
+            <p className="mb-2">Developed with:</p>
             <div className="flex flex-wrap justify-center gap-3">
               {technologies.map((tech, index) => (
                 <motion.div

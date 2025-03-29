@@ -84,11 +84,11 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
           className="mb-12 md:mb-16 text-center"
         >
           <h2 className={`text-3xl font-bold mb-6 ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}>
-            Se interessou?
+          interested?
           </h2>
           <p className={`text-lg mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-            Estou sempre aberta a novas oportunidades e parcerias. Se quiser conversar sobre 
-            tecnologia ou tiver alguma proposta, mande sua mensagem!
+          I'm always open to new opportunities and partnerships. 
+          If you want to talk about technology or have a proposal, send me a message!
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-2xl mx-auto">
@@ -149,19 +149,19 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
               className={`mb-6 p-4 rounded-lg ${darkMode ? 'bg-green-900/30 border border-green-800' : 'bg-green-100 border border-green-200'} text-center`}
             >
               <p className={darkMode ? 'text-green-400' : 'text-green-700'}>
-                Mensagem enviada com sucesso! Entrarei em contato em breve.
+               Message sent successfully! I will contact you shortly.
               </p>
             </motion.div>
           )}
 
           <h3 className={`text-xl md:text-2xl font-bold mb-6 flex items-center gap-2 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
             <FiSend className={darkMode ? 'text-purple-400' : 'text-purple-600'} />
-            Mande uma mensagem
+            Send a message
           </h3>
 
           <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
             <motion.div whileHover={{ scale: 1.01 }}>
-              <label className={`block mb-2 ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>Nome*</label>
+              <label className={`block mb-2 ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>Name*</label>
               <input
                 name="name"
                 value={formData.name}
@@ -187,7 +187,7 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.01 }}>
-              <label className={`block mb-2 ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>Assunto*</label>
+              <label className={`block mb-2 ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>Subject*</label>
               <input
                 name="subject"
                 value={formData.subject}
@@ -200,7 +200,7 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.01 }}>
-              <label className={`block mb-2 ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>Mensagem*</label>
+              <label className={`block mb-2 ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>Message*</label>
               <textarea
                 name="message"
                 value={formData.message}
@@ -222,7 +222,7 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
               className={`w-full py-3 px-4 rounded-lg font-bold transition-all duration-300 ${darkMode ? 'bg-purple-600 hover:bg-purple-700 text-white' : 'bg-purple-500 hover:bg-purple-600 text-white'} ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               type="submit"
             >
-              {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </motion.button>
           </form>
         </motion.div>
