@@ -1,14 +1,232 @@
-import { FaGithub, FaLinkedin, FaFileCsv } from 'react-icons/fa';
+import { motion } from "framer-motion";
+import { FiSend, FiUser, FiMail, FiLinkedin, FiGithub } from "react-icons/fi";
+import { useState } from "react";
 
-export default function Contact() {
+
+export default function ContactForm({ darkMode }: { darkMode: boolean }) {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    // Limpa o erro quando o usuário começa a digitar
+    if (errors[name]) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    
+    if (!formData.name.trim()) newErrors.name = 'Nome é obrigatório';
+    if (!formData.email.trim()) {
+      newErrors.email = 'E-mail é obrigatório';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'E-mail inválido';
+    }
+    if (!formData.subject.trim()) newErrors.subject = 'Assunto é obrigatório';
+    if (!formData.message.trim()) newErrors.message = 'Mensagem é obrigatória';
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+    
+    try {
+      // Simulando envio do formulário
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      console.log('Formulário enviado:', formData);
+      setSubmitSuccess(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      
+      // Reseta o estado de sucesso após 5 segundos
+      setTimeout(() => setSubmitSuccess(false), 5000);
+    } catch (error) {
+      console.error('Erro ao enviar:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div id="contact" className="py-6 text-center bg-gray-800">
-      <h2 className="text-4xl font-bold text-white">Contact</h2>
-      <div className="flex justify-center gap-6 mt-4">
-        <a href="https://github.com/EveeSilvaa" className="text-3xl text-purple-500 hover:text-purple-400 transition-colors"><FaGithub /></a>
-        <a href="https://www.linkedin.com/in/maeve-silva/" className="text-3xl text-purple-500 hover:text-purple-400 transition-colors"><FaLinkedin /></a>
-        <a href="src/assets/curriculo.pdf" className="text-3xl text-purple-500 hover:text-purple-400 transition-colors"><FaFileCsv /></a>
+    <section 
+      id="contact" 
+      className={`py-16 md:py-20 transition-colors duration-300 ${darkMode ? 'bg-black' : 'bg-white'}`}
+    >
+      <div className="container mx-auto px-4 max-w-4xl">
+        {/* Seção de Informações */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-12 md:mb-16 text-center"
+        >
+          <h2 className={`text-3xl font-bold mb-6 ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}>
+            Se interessou?
+          </h2>
+          <p className={`text-lg mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+            Estou sempre aberta a novas oportunidades e parcerias. Se quiser conversar sobre 
+            tecnologia ou tiver alguma proposta, mande sua mensagem!
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-2xl mx-auto">
+            <div className="flex items-center gap-4 justify-center md:justify-start">
+              <div className={`p-3 rounded-full ${darkMode ? 'bg-purple-900 text-purple-400' : 'bg-purple-100 text-purple-600'}`}>
+                <FiUser size={20} />
+              </div>
+              <span className={darkMode ? 'text-gray-300' : 'text-gray-700'}>Maria Evellyn</span>
+            </div>
+            
+            <div className="flex items-center gap-4 justify-center md:justify-start">
+              <div className={`p-3 rounded-full ${darkMode ? 'bg-purple-900 text-purple-400' : 'bg-purple-100 text-purple-600'}`}>
+                <FiMail size={20} />
+              </div>
+              <span className={darkMode ? 'text-gray-300' : 'text-gray-700'}>evesilva.contato@gmail.com</span>
+            </div>
+          </div>
+
+          {/* Redes Sociais */}
+          <div className="flex justify-center gap-6 mt-8">
+            <motion.a
+              href="https://github.com/EveeSilvaa"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -3 }}
+              className={`p-3 rounded-full ${darkMode ? 'bg-gray-700 hover:bg-purple-600 text-gray-300' : 'bg-gray-200 hover:bg-purple-500 text-gray-700 hover:text-white'}`}
+              aria-label="GitHub"
+            >
+              <FiGithub size={20} />
+            </motion.a>
+            </div>
+            <div className="flex items-center gap-4 justify-center md:justify-startf">
+            <motion.a
+              href="https://linkedin.com/in/seu-perfil"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -3 }}
+              className={`p-3 rounded-full ${darkMode ? 'bg-gray-700 hover:bg-purple-600 text-gray-300' : 'bg-gray-200 hover:bg-purple-500 text-gray-700 hover:text-white'}`}
+              aria-label="LinkedIn"
+            >
+              <FiLinkedin size={20} />
+            </motion.a>
+          </div>
+        </motion.div>
+
+        {/* Formulário com Efeitos */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className={`p-6 md:p-8 rounded-xl shadow-lg ${darkMode ? 'bg-gray-800 border border-purple-900/30' : 'bg-white border border-gray-200'}`}
+        >
+          {submitSuccess && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className={`mb-6 p-4 rounded-lg ${darkMode ? 'bg-green-900/30 border border-green-800' : 'bg-green-100 border border-green-200'} text-center`}
+            >
+              <p className={darkMode ? 'text-green-400' : 'text-green-700'}>
+                Mensagem enviada com sucesso! Entrarei em contato em breve.
+              </p>
+            </motion.div>
+          )}
+
+          <h3 className={`text-xl md:text-2xl font-bold mb-6 flex items-center gap-2 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+            <FiSend className={darkMode ? 'text-purple-400' : 'text-purple-600'} />
+            Mande uma mensagem
+          </h3>
+
+          <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+            <motion.div whileHover={{ scale: 1.01 }}>
+              <label className={`block mb-2 ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>Nome*</label>
+              <input
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                type="text"
+                className={`w-full rounded-lg px-4 py-3 focus:outline-none transition-colors ${darkMode ? 'bg-gray-700 border-gray-600 text-white focus:ring-2 focus:ring-purple-500' : 'bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-purple-400'} ${errors.name ? 'border-red-500' : 'border'}`}
+                required
+              />
+              {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
+            </motion.div>
+
+            <motion.div whileHover={{ scale: 1.01 }}>
+              <label className={`block mb-2 ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>E-mail*</label>
+              <input
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                type="email"
+                className={`w-full rounded-lg px-4 py-3 focus:outline-none transition-colors ${darkMode ? 'bg-gray-700 border-gray-600 text-white focus:ring-2 focus:ring-purple-500' : 'bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-purple-400'} ${errors.email ? 'border-red-500' : 'border'}`}
+                required
+              />
+              {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
+            </motion.div>
+
+            <motion.div whileHover={{ scale: 1.01 }}>
+              <label className={`block mb-2 ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>Assunto*</label>
+              <input
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                type="text"
+                className={`w-full rounded-lg px-4 py-3 focus:outline-none transition-colors ${darkMode ? 'bg-gray-700 border-gray-600 text-white focus:ring-2 focus:ring-purple-500' : 'bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-purple-400'} ${errors.subject ? 'border-red-500' : 'border'}`}
+                required
+              />
+              {errors.subject && <p className="mt-1 text-sm text-red-500">{errors.subject}</p>}
+            </motion.div>
+
+            <motion.div whileHover={{ scale: 1.01 }}>
+              <label className={`block mb-2 ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>Mensagem*</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={5}
+                className={`w-full rounded-lg px-4 py-3 focus:outline-none transition-colors ${darkMode ? 'bg-gray-700 border-gray-600 text-white focus:ring-2 focus:ring-purple-500' : 'bg-white border-gray-300 text-gray-800 focus:ring-2 focus:ring-purple-400'} ${errors.message ? 'border-red-500' : 'border'}`}
+                required
+              ></textarea>
+              {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message}</p>}
+            </motion.div>
+
+            <motion.button
+              whileHover={{ 
+                scale: 1.03,
+                boxShadow: darkMode ? "0 0 15px rgba(168, 85, 247, 0.5)" : "0 0 15px rgba(124, 58, 237, 0.3)"
+              }}
+              whileTap={{ scale: 0.98 }}
+              disabled={isSubmitting}
+              className={`w-full py-3 px-4 rounded-lg font-bold transition-all duration-300 ${darkMode ? 'bg-purple-600 hover:bg-purple-700 text-white' : 'bg-purple-500 hover:bg-purple-600 text-white'} ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+              type="submit"
+            >
+              {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+            </motion.button>
+          </form>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
