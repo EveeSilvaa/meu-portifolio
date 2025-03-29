@@ -139,7 +139,7 @@ export default function About({ darkMode }: { darkMode: boolean }) {
                 <span className={`font-bold ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}>2023</span> - Currently...
               </p>
               <p className="text-xl font-semibold mb-2">Faculty of Technology</p>
-              <p>Bachelor's Degree in Systems Analysis and Development</p>
+              <p>Degree in Systems Analysis and Development</p>
             </div>
           </motion.div>
         </div>
