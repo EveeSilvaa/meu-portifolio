@@ -4,7 +4,6 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./public/projects/**/*.{png}",
   ],
   theme: {
     extend: {
