@@ -31,7 +31,7 @@ export default function Home({ darkMode }: { darkMode: boolean }) {
         transition={{ duration: 0.8, delay: 0.3 }}
         className={`container mx-auto px-4 text-center relative z-10 ${darkMode ? 'text-white' : 'text-gray-800'}`}
       >
-        <h1 className={`text-6xl md:text-7xl font-bold block mt-4 ${darkMode ? 'text-purple-500' : 'text-purple-600'}`}>
+        <h1 className={`text-6xl md:text-7xl font-bold block mt-4 ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>
           FULLSTACK <p className="text-4xl mt-2 text-purple-400">Developer</p>
         </h1>
         <p className="text-lg md:text-xl max-w-2xl mx-auto mt-4 mb-8">
