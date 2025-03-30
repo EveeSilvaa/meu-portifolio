@@ -6,7 +6,7 @@ export default function Projects({ darkMode }: { darkMode: boolean }) {
     {
       title: "TaskMaster",
       description: "Web application for organizing daily tasks efficiently using modern front-end technologies.",
-      image: "public/projects/TodoList.webp", // Changed to webp for better performance
+      image: "./public/projects/TodoList.png", // Changed to webp for better performance
       repoUrl: "https://github.com/EveeSilvaa/todo-list", 
       deployUrl: "https://todo-list-r7xi-eveesilvaas-projects.vercel.app/",
       tags: ["React", "TypeScript", "TailwindCSS"]
