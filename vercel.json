@@ -2,7 +2,7 @@
     "version": 2,
     "public": true,
     "name": "meu-portifolio",
-    "alias": ["meu-portifolio-zeta-pied.vercel.app"],
+    "alias": ["https://meu-portifolio-eveesilva-pied.vercel.app/"],
     "rewrites": [
       {
         "source": "/(.*)",
