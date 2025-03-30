@@ -35,7 +35,7 @@ export default function Links({ darkMode }: { darkMode: boolean }) {
     },
     { 
       icon: <FaFilePdf size={24} />, 
-      url: "src/assets/Currículo (1).pdf",
+      url: "public/Currículo (1).pdf",
       label: "Download Resume"
     }
   ];
