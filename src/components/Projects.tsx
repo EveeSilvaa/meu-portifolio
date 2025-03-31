@@ -1,12 +1,19 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
+
+// Importe as imagens
+import TodoListImg from "@/assets/TodoList.png";
+import MemoryGameImg from '@/assets/memorygame.png';
+import TravelMasterImg from '@/assets/TravelMaster.png';
+
+
 export default function Projects({ darkMode }: { darkMode: boolean }) {
   const projects = [
     {
       title: "TaskMaster",
       description: "Web application for organizing daily tasks efficiently using modern front-end technologies.",
-      image: "public/TodoList.png", // Changed to webp for better performance
+      image: TodoListImg, // Changed to webp for better performance
       repoUrl: "https://github.com/EveeSilvaa/todo-list", 
       deployUrl: "https://todo-list-r7xi-eveesilvaas-projects.vercel.app/",
       tags: ["React", "TypeScript", "TailwindCSS"]
@@ -14,7 +21,7 @@ export default function Projects({ darkMode }: { darkMode: boolean }) {
     {
       title: "Memory Game",
       description: "Memory card game with Adventure Time characters and accessibility features. The game has two versions, one in JS and one in Python.",
-      image: "public/memorygame.png",
+      image: MemoryGameImg,
       repoUrl: "https://github.com/EveeSilvaa/memorygame-adv", 
       deployUrl: "https://memorygame-adv.vercel.app/",
       tags: ["JavaScript", "HTML5", "CSS3", "Python"]
@@ -22,7 +29,7 @@ export default function Projects({ darkMode }: { darkMode: boolean }) {
     {
       title: "Travel Master",
       description: "TravelMaster is a travel app developed as an extension of a challenge proposed by DevEx Soluções. Initially, the challenge consisted of creating a login page, but I decided to expand the idea to build a complete travel app interface, with features such as destination search, weather forecast, and much more.",
-      image: "public/TravelMaster.png",
+      image: TravelMasterImg,
       repoUrl: "https://github.com/EveeSilvaa/Formulario-Login", 
       deployUrl: "https://formulario-login-hazel.vercel.app/",
       tags: ["React", "Axios", "CSS3", "Next.js", "Context API"]

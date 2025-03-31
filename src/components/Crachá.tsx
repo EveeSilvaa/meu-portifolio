@@ -1,6 +1,8 @@
 // src/components/Crachá.tsx
 import { motion, useAnimation } from 'framer-motion';
 // import { useState } from 'react';
+import minhafotoImg from "../assets/minhafoto.png";
+
 
 export default function Crachá() {
   const controls = useAnimation();
@@ -38,7 +40,7 @@ export default function Crachá() {
       
       {/* Imagem do crachá */}
       <img
-        src="public/minhafoto.png" 
+        src={ minhafotoImg }
         alt="Crachá Dev"
         className="w-full h-auto object-contain"
         style={{
