@@ -10,6 +10,10 @@ export default {
       colors: {
         light: "#7c3aed",
         dark: "#6d28d9",
+      },
+      screens: {
+        'xs': '480px',
+        'sm': '640px'
       }
     },
   },

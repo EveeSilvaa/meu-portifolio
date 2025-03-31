@@ -37,7 +37,7 @@ export default function Links({ darkMode }: { darkMode: boolean }) {
     },
     { 
       icon: <FaFilePdf size={24} />, 
-      url: "public/Currículo (1).pdf",
+      url: "/Curriculo.pdf",
       label: "Download Resume"
     }
   ];
@@ -57,7 +57,7 @@ export default function Links({ darkMode }: { darkMode: boolean }) {
           Connect With Me
         </motion.h2>
 
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-8">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-6 mb-8">
           {links.map((link, index) => (
             <motion.a
               key={index}

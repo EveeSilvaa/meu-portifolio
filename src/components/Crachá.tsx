@@ -42,7 +42,7 @@ export default function Crachá() {
       <img
         src={ minhafotoImg }
         alt="Crachá Dev"
-        className="w-full h-auto object-contain"
+        className="w-full h-full object-contain"
         style={{
           filter: 'drop-shadow(0 5px 15px rgba(168, 85, 247, 0.5))'
         }}

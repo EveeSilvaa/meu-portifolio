@@ -37,7 +37,7 @@ export default function App() {
       {/* Botão de alternância de tema */}
       <button
         onClick={toggleTheme}
-        className="fixed right-6 z-50 p-3 rounded-full bg-purple-600 text-white shadow-lg hover:bg-purple-700 transition-colors"
+        className="fixed right-3 top-1 z-50 p-2 rounded-full bg-purple-600 text-white shadow-lg hover:bg-purple-700 transition-colors"
         aria-label="Alternar tema"
       >
         {darkMode ? <FiSun size={20} /> : <FiMoon size={20} />}

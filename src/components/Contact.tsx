@@ -74,7 +74,7 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
       id="contact" 
       className={`py-16 md:py-20 transition-colors duration-300 ${darkMode ? 'bg-black' : 'bg-white'}`}
     >
-      <div className="container mx-auto px-4 max-w-4xl">
+      <div className="container mx-auto px-4 max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-4xl">
         {/* Seção de Informações */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
