@@ -3,6 +3,8 @@ import { FaGithub, FaLinkedin, FaFilePdf, FaEnvelope, FaPhone } from 'react-icon
 import { SiReact, SiTypescript, SiTailwindcss, SiNextdotjs } from 'react-icons/si';
  // Assumindo que você tem um contexto de tema
 
+
+
 export default function Links({ darkMode }: { darkMode: boolean }) {
   
   const technologies = [
@@ -35,7 +37,7 @@ export default function Links({ darkMode }: { darkMode: boolean }) {
     },
     { 
       icon: <FaFilePdf size={24} />, 
-      url: "src/assets/Currículo (1).pdf",
+      url: "public/Currículo (1).pdf",
       label: "Download Resume"
     }
   ];
