@@ -6,7 +6,7 @@ export default function Projects({ darkMode }: { darkMode: boolean }) {
     {
       title: "TaskMaster",
       description: "Web application for organizing daily tasks efficiently using modern front-end technologies.",
-      image: "src/images/projects/TodoList.png", // Changed to webp for better performance
+      image: "public/TodoList.png", // Changed to webp for better performance
       repoUrl: "https://github.com/EveeSilvaa/todo-list", 
       deployUrl: "https://todo-list-r7xi-eveesilvaas-projects.vercel.app/",
       tags: ["React", "TypeScript", "TailwindCSS"]
@@ -14,7 +14,7 @@ export default function Projects({ darkMode }: { darkMode: boolean }) {
     {
       title: "Memory Game",
       description: "Memory card game with Adventure Time characters and accessibility features. The game has two versions, one in JS and one in Python.",
-      image: "src/images/projects/memorygame.png",
+      image: "public/memorygame.png",
       repoUrl: "https://github.com/EveeSilvaa/memorygame-adv", 
       deployUrl: "https://memorygame-adv.vercel.app/",
       tags: ["JavaScript", "HTML5", "CSS3", "Python"]
@@ -22,7 +22,7 @@ export default function Projects({ darkMode }: { darkMode: boolean }) {
     {
       title: "Travel Master",
       description: "TravelMaster is a travel app developed as an extension of a challenge proposed by DevEx Soluções. Initially, the challenge consisted of creating a login page, but I decided to expand the idea to build a complete travel app interface, with features such as destination search, weather forecast, and much more.",
-      image: "src/images/projects/TravelMaster.png",
+      image: "public/TravelMaster.png",
       repoUrl: "https://github.com/EveeSilvaa/Formulario-Login", 
       deployUrl: "https://formulario-login-hazel.vercel.app/",
       tags: ["React", "Axios", "CSS3", "Next.js", "Context API"]
