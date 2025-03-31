@@ -38,7 +38,7 @@ export default function Crachá() {
       
       {/* Imagem do crachá */}
       <img
-        src="public/minhafoto.png" 
+        src="src/images/minhafoto.png" 
         alt="Crachá Dev"
         className="w-full h-auto object-contain"
         style={{
