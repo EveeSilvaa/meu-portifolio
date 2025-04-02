@@ -34,7 +34,7 @@ export default function Home({ darkMode }: { darkMode: boolean }) {
       </div>
 
       {/* Container principal */}
-      <div className="container mx-auto px-2 pt-1">
+      <div className="container w-1/2  mx-auto px-3 pt-1">
         {/* Layout desktop - Card esquerda, Texto direita */}
         <div className="hidden md:flex flex-row items-center justify-between w-full">
           {/* Card à esquerda - Exibido apenas em desktop */}
