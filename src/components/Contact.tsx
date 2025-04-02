@@ -87,8 +87,8 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
           Interested?
           </h2>
           <p className={`text-lg mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-          I'm always open to new opportunities and partnerships. 
-          If you want to talk about technology or have a proposal, send me a message!
+            I'm always open to new opportunities and partnerships.
+            If you want to talk about technology or have a proposal, send me a message! 
           </p>
         </motion.div>
        <div>
