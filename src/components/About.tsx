@@ -47,7 +47,7 @@ export default function About({ darkMode }: { darkMode: boolean }) {
             </p>
 
             <div className={`max-w-2xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-8 mb-8">
                 {[
                   "🛠️ Developing performant web applications with clean code",
                   "🎨 Crafting intuitive UI/UX designs with Figma",
@@ -84,7 +84,7 @@ export default function About({ darkMode }: { darkMode: boolean }) {
 
       {/* Seção Habilidades Técnicas */}
       <section id="skills" className={`py-16 ${darkMode ? 'bg-black' : 'bg-white'}`}>
-        <div className="container mx-auto px-4">
+        <div className="container space-y-3 mx-auto px-2">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
