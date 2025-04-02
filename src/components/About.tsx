@@ -42,8 +42,8 @@ export default function About({ darkMode }: { darkMode: boolean }) {
               About Me
             </h2>
             <p className={`text-lg max-w-2xl mx-auto mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              I am a passionate full-stack developer focused on creating innovative and user-centric digital solutions. 
-              With experience in modern web technologies such as React, Node.js, Java and TypeScript.
+             I am a passionate full-stack developer focused on creating innovative and user-centric digital solutions.
+             With experience in modern web technologies such as React, Node.js, Java and TypeScript.
             </p>
 
             <div className={`max-w-2xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
