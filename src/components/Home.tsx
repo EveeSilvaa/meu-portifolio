@@ -10,17 +10,31 @@ export default function Home({ darkMode }: { darkMode: boolean }) {
       {/* Texto de fundo "Portfólio" */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
         <motion.h1 
-          className={`text-[20vw] font-bold opacity-10 md:opacity-20 text-purple-600 select-none`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.1 }}
-          transition={{ duration: 1.4 }}
+          className={`text-[20vw] font-bold select-none ${darkMode ? 'text-purple-500' : 'text-purple-400'}`}
+          initial={{ opacity: 0.1 }}
+          animate={{ 
+            opacity: [0.1, 0.3, 0.1], 
+            textShadow: [
+              '0 0 5px rgba(191, 154, 226, 0.3)',
+              '0 0 20px rgba(168, 85, 247, 0.8)',
+              '0 0 5px rgba(168, 85, 247, 0.3)'         
+            ]
+          }}
+          transition={{ 
+            duration: 1.4, 
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          style={{
+            filter: 'drop-shadow(0 0 2px rgba(168, 85, 247, 0.5))'
+          }}
         >
           Portfólio
         </motion.h1>
       </div>
 
       {/* Container principal */}
-      <div className="container mx-auto px-4 pt-1">
+      <div className="container mx-auto px-2 pt-1">
         {/* Layout desktop - Card esquerda, Texto direita */}
         <div className="hidden md:flex flex-row items-center justify-between w-full">
           {/* Card à esquerda - Exibido apenas em desktop */}
@@ -28,7 +42,7 @@ export default function Home({ darkMode }: { darkMode: boolean }) {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="w-1/3  flex justify-center -mt-16"
+            className="w-1/3 flex justify-center relative -mt-12"
           >
             <Crachá />
           </motion.div>

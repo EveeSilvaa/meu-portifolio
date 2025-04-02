@@ -22,7 +22,7 @@ export default function Crachá() {
     <motion.div
       animate={controls}
       onHoverStart={handleHover}
-      className="relative w-40 md:w-40 lg:w-48 cursor-pointer"
+      className=" mx-auto -mt-8"
     >
       
       {/* Imagem do crachá */}
