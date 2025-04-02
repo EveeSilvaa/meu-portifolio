@@ -1,15 +1,13 @@
 // src/components/Crachá.tsx
 import { motion, useAnimation } from 'framer-motion';
 // import { useState } from 'react';
-import minhafotoImg from "../assets/minhafoto.png";
+import minhafotoImg from "../assets/crachá-badg.png";
 
 
 export default function Crachá() {
   const controls = useAnimation();
-  // const [isHovered, setIsHovered] = useState(false);
 
   const handleHover = () => {
-    // setIsHovered(true);
     controls.start({
       y: [0, 30, 20, 30, 25, 30, 28, 30, 0], // Movimento vertical de queda
       transition: {
@@ -24,19 +22,8 @@ export default function Crachá() {
     <motion.div
       animate={controls}
       onHoverStart={handleHover}
-      // onHoverEnd={() => setIsHovered(false)}
-      className="relative w-40 md:w-40 lg:w-48 top-[6%] cursor-pointer"
+      className="relative w-40 md:w-40 lg:w-48 cursor-pointer"
     >
-      {/* Cordinha (opcional) */}
-      {/* {isHovered && (
-        <motion.div 
-          className="absolute -top-6 left-1/2 w-0.5 h-6 bg-purple-400"
-          initial={{ opacity: 0, scaleY: 0 }}
-          animate={{ opacity: 1, scaleY: 1 }}
-          transition={{ duration: 0.3 }}
-          style={{ x: '-50%' }}
-        />
-      )} */}
       
       {/* Imagem do crachá */}
       <img

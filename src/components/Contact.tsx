@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FiSend, FiUser, FiMail, FiLinkedin, FiGithub } from "react-icons/fi";
+import { FiSend, FiMail, FiLinkedin, FiGithub } from "react-icons/fi";
 import { useState } from "react";
 
 
@@ -90,61 +90,44 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
           I'm always open to new opportunities and partnerships. 
           If you want to talk about technology or have a proposal, send me a message!
           </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-2xl mx-auto">
-            <div className="flex items-center gap-4 justify-center md:justify-start">
-              <div className={`p-3 rounded-full ${darkMode ? 'bg-purple-900 text-purple-400' : 'bg-purple-100 text-purple-600'}`}>
-                <FiUser size={20} />
-              </div>
-              <span className={darkMode ? 'text-gray-300' : 'text-gray-700'}>Maria Evellyn</span>
-            </div>
-            
-          <div className="py-2 grid grid-cols-1 md:grid-cols-2  md:gap-6 max-w-2xl mx-auto">
-            <div className="flex items-center gap-4 justify-center md:justify-start">
-              <motion.a
-                href="mailto:evesilva.contato@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ y: -3 }}
-                className={`p-3 rounded-full ${darkMode ? 'bg-gray-700 hover:bg-purple-600 text-gray-300' : 'bg-gray-200 hover:bg-purple-500 text-gray-700 hover:text-white'}`}
-                aria-label="E-mail"
-              >
-                <FiMail size={20} /> 
-              </motion.a>
-            </div>
-          </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-2xl mx-auto">
-            <div className="flex items-center gap-4 justify-center md:justify-start">
-              <motion.a
-                href="https://github.com/EveeSilvaa"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ y: -3 }}
-                className={`p-3 rounded-full ${darkMode ? 'bg-gray-700 hover:bg-purple-600 text-gray-300' : 'bg-gray-200 hover:bg-purple-500 text-gray-700 hover:text-white'}`}
-                aria-label="GitHub"
-              >
-                <FiGithub size={20} /> 
-              </motion.a>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-2xl mx-auto">
-            <div className="flex items-center gap-4 justify-center md:justify-start">
-              <motion.a
-                href="https://www.linkedin.com/in/maeve-silva/"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ y: -3 }}
-                className={`p-3 rounded-full ${darkMode ? 'bg-gray-700 hover:bg-purple-600 text-gray-300' : 'bg-gray-200 hover:bg-purple-500 text-gray-700 hover:text-white'}`}
-                aria-label="LinkedIn"
-              >
-                <FiLinkedin size={20} />
-              </motion.a>
-            </div>
-           </div>
-          </div>
         </motion.div>
+       <div>
+        {/* Ícones (GitHub, LinkedIn, E-mail) - Modificado para linha horizontal no mobile */}
+        <div className="flex justify-center md:justify-start gap-6 md:gap-5">
+          <motion.a
+           href="https://github.com/EveeSilvaa"
+           target="_blank"
+           rel="noopener noreferrer"
+           whileHover={{ y: -3 }}
+           className={`p-3 rounded-full ${darkMode ? 'bg-gray-700 hover:bg-purple-600 text-gray-300' : 'bg-gray-200 hover:bg-purple-500 text-gray-700 hover:text-white'}`}
+           aria-label="GitHub"
+          >
+           <FiGithub size={20} /> 
+          </motion.a>
+
+          <motion.a
+            href="https://www.linkedin.com/in/maeve-silva/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ y: -3 }}
+            className={`p-3 rounded-full ${darkMode ? 'bg-gray-700 hover:bg-purple-600 text-gray-300' : 'bg-gray-200 hover:bg-purple-500 text-gray-700 hover:text-white'}`}
+            aria-label="LinkedIn"
+          >
+          <FiLinkedin size={20} />
+          </motion.a>
+
+          <motion.a
+            href="mailto:evesilva.contato@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ y: -3 }}
+            className={`p-3 rounded-full ${darkMode ? 'bg-gray-700 hover:bg-purple-600 text-gray-300' : 'bg-gray-200 hover:bg-purple-500 text-gray-700 hover:text-white'}`}
+            aria-label="E-mail"
+          >
+          <FiMail size={20} /> 
+          </motion.a>
+        </div>
+      </div>
 
         {/* Formulário com Efeitos */}
         <motion.div

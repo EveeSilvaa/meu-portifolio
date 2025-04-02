@@ -1,6 +1,7 @@
 {
   "name": "meu-portifolio",
   "private": true,
+  "author": "Maria Evellyn <evesilva.contato@gmail.com> (https://github.com/EveeSilvaa)",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

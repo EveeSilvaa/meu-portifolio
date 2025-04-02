@@ -5,12 +5,12 @@ export default function Home({ darkMode }: { darkMode: boolean }) {
   return (
     <section 
       id="home" 
-      className={`relative min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-between overflow-hidden px-4 ${darkMode ? 'bg-black' : 'bg-white'}`}
+      className={`relative min-h-screen flex items-center justify-center overflow-hidden ${darkMode ? 'bg-black' : 'bg-white'}`}
     >
-      {/* Texto "Portfólio" neon no background */}
+      {/* Texto de fundo "Portfólio" */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
         <motion.h1 
-          className={`text-[20vw] font-bold opacity-10 md:opacity-20 text-purple-600 select-none neon-text`}
+          className={`text-[20vw] font-bold opacity-10 md:opacity-20 text-purple-600 select-none`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.1 }}
           transition={{ duration: 1.4 }}
@@ -19,30 +19,57 @@ export default function Home({ darkMode }: { darkMode: boolean }) {
         </motion.h1>
       </div>
 
-      {/* Conteúdo principal - Layout flexível */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className={`relative z-10 w-full md:w-auto text-center md:text-left order-2 md:order-none ${darkMode ? 'text-white' : 'text-gray-800'}`}
-      >
-        <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold block mt-4 ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>
-          FULLSTACK <span className="block text-2xl sm:text-3xl md:text-4xl mt-2 text-purple-400">Developer</span>
-        </h1>
-        <p className="text-base sm:text-lg md:text-xl max-w-md mx-auto md:mx-0 mt-4 mb-8">
-          Hello, my name is Maria Evellyn, I am a FullStack developer with experience in Java, React and TypeScript.
-        </p>
-      </motion.div>
+      {/* Container principal */}
+      <div className="container mx-auto px-4 pt-1">
+        {/* Layout desktop - Card esquerda, Texto direita */}
+        <div className="hidden md:flex flex-row items-center justify-between w-full">
+          {/* Card à esquerda - Exibido apenas em desktop */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="w-1/3  flex justify-center -mt-16"
+          >
+            <Crachá />
+          </motion.div>
 
-      {/* Crachá - Posição responsiva */}
-      <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        className="relative z-20 order-1 md:order-none mb-8 md:mb-0 md:ml-12"
-      >
-        <Crachá />
-      </motion.div>
+          {/* Texto à direita */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="w-2/3 pl-12"
+          >
+            <h1 className={`text-5xl lg:text-6xl font-bold ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>
+              FULLSTACK
+            </h1>
+            <p className={`text-3xl lg:text-4xl mt-4 ${darkMode ? 'text-purple-400' : 'text-purple-500'}`}>
+              Developer
+            </p>
+            <p className={`text-lg lg:text-xl mt-8 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              Hello!! My name is Maria Evellyn, I'm 21 years old and I'm a FullStack developer with experience in Java, React and TypeScript.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Layout mobile - Apenas texto (centralizado) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="md:hidden text-center"
+        >
+          <h1 className={`text-4xl font-bold ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>
+            FULLSTACK
+          </h1>
+          <p className={`text-2xl mt-2 ${darkMode ? 'text-purple-400' : 'text-purple-500'}`}>
+            Developer
+          </p>
+          <p className={`text-base mt-6 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+            Hello!! My name is Maria Evellyn, I'm 21 years old and I'm a FullStack developer with experience in Java, React and TypeScript.
+          </p>
+        </motion.div>
+      </div>
     </section>
   );
 }
