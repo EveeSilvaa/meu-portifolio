@@ -20,7 +20,7 @@ export default function Home({ darkMode }: { darkMode: boolean }) {
       </div>
 
       {/* Container principal */}
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center min-h-[90vh]">
+      <div className="container mx-auto px-4 pt-1">
         {/* Layout desktop - Card esquerda, Texto direita */}
         <div className="hidden md:flex flex-row items-center justify-between w-full">
           {/* Card à esquerda - Exibido apenas em desktop */}
@@ -28,7 +28,7 @@ export default function Home({ darkMode }: { darkMode: boolean }) {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden md:block w-full md:w-1/3 lg:w-1/4 xl:w-1/5 flex justify-center mb-8 md:mb-0"
+            className="w-1/3  flex justify-center -mt-16"
           >
             <Crachá />
           </motion.div>
@@ -38,9 +38,9 @@ export default function Home({ darkMode }: { darkMode: boolean }) {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="w-full md:w-2/3 lg:w-3/5 px-0 md:px-12 text-center md:text-left"
+            className="w-2/3 pl-12"
           >
-            <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>
+            <h1 className={`text-5xl lg:text-6xl font-bold ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>
               FULLSTACK
             </h1>
             <p className={`text-3xl lg:text-4xl mt-4 ${darkMode ? 'text-purple-400' : 'text-purple-500'}`}>
