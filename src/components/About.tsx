@@ -29,8 +29,8 @@ export default function About({ darkMode }: { darkMode: boolean }) {
   return (
     <>
       {/* Seção Sobre Mim */}
-      <section id="about" className={`snap-start min-h-screen py-20 ${darkMode ? 'bg-black' : 'bg-white'}`}>
-        <div className="container mx-auto px-4">
+      <section id="about" className={`snap-start min-h-screen ${darkMode ? 'bg-black' : 'bg-white'}`}>
+        <div className="container mx-auto px-4 pt-16 pb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -84,12 +84,12 @@ export default function About({ darkMode }: { darkMode: boolean }) {
 
       {/* Seção Habilidades Técnicas */}
       <section id="skills" className={`py-16 ${darkMode ? 'bg-black' : 'bg-white'}`}>
-        <div className="container space-y-3 mx-auto px-2">
+        <div className="container mx-auto px-4 pt-8 pb-12">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className={`text-3xl md:text-4xl font-bold mb-12 text-center ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}
+            className={`text-3xl md:text-4xl font-bold mb-8 text-center ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}
           >
             Technical Skills
           </motion.h2>
