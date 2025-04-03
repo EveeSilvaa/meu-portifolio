@@ -33,11 +33,11 @@ export default function Links({ darkMode }: { darkMode: boolean }) {
     { 
       icon: <FaPhone size={24} />, 
       url: "tel:+5562982038650",
-      label: "Phone Call"
+      label: "Phone Call" 
     },
     { 
       icon: <FaFilePdf size={24} />, 
-      url: "/Curriculo.pdf",
+      url: "/Curriculo-Eng.pdf",  // English Translated Resume
       label: "Download Resume"
     }
   ];

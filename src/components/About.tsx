@@ -30,7 +30,7 @@ export default function About({ darkMode }: { darkMode: boolean }) {
     <>
       {/* Seção Sobre Mim */}
       <section id="about" className={`snap-start min-h-screen ${darkMode ? 'bg-black' : 'bg-white'}`}>
-        <div className="container mx-auto px-4 pt-16 pb-8">
+        <div className="container mx-auto px-4 pt-24 pb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -38,16 +38,16 @@ export default function About({ darkMode }: { darkMode: boolean }) {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}>
+            <h2 className={`text-4xl md:text-5xl font-bold mb-8 ${darkMode ? 'text-purple-400' : 'text-purple-600'} tracking-tight`}>
               About Me
             </h2>
-            <p className={`text-lg max-w-2xl mx-auto mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-             I am a passionate full-stack developer focused on creating innovative and user-centric digital solutions.
-             With experience in modern web technologies such as React, Node.js, Java and TypeScript.
+            <p className={`text-xl max-w-3xl mx-auto mb-12 leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              I am a passionate full-stack developer focused on creating innovative and user-centric digital solutions.
+              With experience in modern web technologies such as React, Node.js, Java and TypeScript.
             </p>
 
-            <div className={`max-w-2xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              <ul className="space-y-8 mb-8">
+            <div className={`max-w-3xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              <ul className="space-y-10 mb-12">
                 {[
                   "🛠️ Developing performant web applications with clean code",
                   "🎨 Crafting intuitive UI/UX designs with Figma",
@@ -59,24 +59,27 @@ export default function About({ darkMode }: { darkMode: boolean }) {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
-                    className="flex items-start gap-3"
+                    transition={{ delay: index * 0.15 + 0.3, duration: 0.5 }}
+                    className="flex items-center gap-6 bg-gradient-to-r from-transparent via-purple-50/5 to-transparent p-4 rounded-lg hover:via-purple-50/10 transition-all"
                   >
-                    <span>{item.split(' ')[0]}</span>
-                    <span>{item.split(' ').slice(1).join(' ')}</span>
+                    <span className="text-2xl">{item.split(' ')[0]}</span>
+                    <span className="text-lg">{item.split(' ').slice(1).join(' ')}</span>
                   </motion.li>
                 ))}
               </ul>
 
-              <motion.p
+              <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7, duration: 0.5 }}
-                className={`text-lg italic ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}
+                className="relative"
               >
-                "Bringing problem-solving creativity and continuous learning to every project."
-              </motion.p>
+                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-25"></div>
+                <p className={`relative text-xl italic p-6 rounded-lg ${darkMode ? 'bg-gray-800 text-purple-400' : 'bg-white text-purple-600'} shadow-xl`}>
+                  "Bringing problem-solving creativity and continuous learning to every project."
+                </p>
+              </motion.div>
             </div>
           </motion.div>
         </div>
