@@ -23,7 +23,7 @@ export default function Projects({ darkMode }: { darkMode: boolean }) {
       description: "Memory card game with Adventure Time characters and accessibility features. The game has two versions, one in JS and one in Python.",
       image: MemoryGameImg,
       repoUrl: "https://github.com/EveeSilvaa/memorygame-adv", 
-      deployUrl: "https://memorygame-adv.vercel.app/",
+      deployUrl: "https://memorygame-adv-gvx8.vercel.app/",
       tags: ["JavaScript", "HTML5", "CSS3", "Python"]
     },
     {
