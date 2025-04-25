@@ -12,7 +12,7 @@ export default function Projects({ darkMode }: { darkMode: boolean }) {
   const projects = [
     {
       title: "TaskMaster",
-      description: "Web application for organizing daily tasks efficiently using modern front-end technologies.",
+      description: "It is a sleek, interactive web app for effortless task and note management. With a colorful UI, smooth navigation, and intuitive controls, it lets you add, view, and organize tasks and notes with ease. Built for efficiency, TaskMaster ensures a seamless experience, keeping everything structured and accessible to boost productivity. ",
       image: TodoListImg, // Changed to webp for better performance
       repoUrl: "https://github.com/EveeSilvaa/todo-list", 
       deployUrl: "https://todo-list-r7xi-eveesilvaas-projects.vercel.app/",
@@ -20,7 +20,7 @@ export default function Projects({ darkMode }: { darkMode: boolean }) {
     },
     {
       title: "Memory Game",
-      description: "Memory card game with Adventure Time characters and accessibility features. The game has two versions, one in JS and one in Python.",
+      description: "It is a fun, engaging card game featuring Adventure Time characters, designed to challenge your memory while keeping gameplay smooth. With accessibility features, it offers two versions—one in Python and another in JavaScript. Built for all players, it ensures a seamless experience, blending fun and challenge to test your memory! ",
       image: MemoryGameImg,
       repoUrl: "https://github.com/EveeSilvaa/memorygame-adv", 
       deployUrl: "https://memorygame-adv-gvx8.vercel.app/",
@@ -28,7 +28,7 @@ export default function Projects({ darkMode }: { darkMode: boolean }) {
     },
     {
       title: "Travel Master",
-      description: "TravelMaster is a travel app developed as an extension of a challenge proposed by DevEx Soluções. Initially, the challenge consisted of creating a login page, but I decided to expand the idea to build a complete travel app interface, with features such as destination search, weather forecast, and much more.",
+      description: "It's a travel app developed as extension of a challenge proposed by DevEx Soluções. Which started as a simple login page evolved into a comprehensive travel interface, featuring destination search, weather forecasts, and more. Designed for convenience and functionality, it provides a seamless experience for planning adventure",
       image: TravelMasterImg,
       repoUrl: "https://github.com/EveeSilvaa/Formulario-Login", 
       deployUrl: "https://formulario-login-hazel.vercel.app/",
