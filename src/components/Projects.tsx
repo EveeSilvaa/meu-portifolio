@@ -6,10 +6,17 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import TodoListImg from "@/assets/TodoList.png";
 import MemoryGameImg from '@/assets/memorygame.png';
 import TravelMasterImg from '@/assets/TravelMaster.png';
-
+import hanamiCardapio from '@/assets/hanamiCardapio.png';
 
 export default function Projects({ darkMode }: { darkMode: boolean }) {
   const projects = [
+    {
+      title: "Hanami Caféteria",
+      description: "Hanami is an online menu project, made for a coffee shop, using react, typescript and motion for a friendly and intuitive interface, we have the possibility of adding the product to the bag, informing the table and the desired payment method, allowing the person to place the order without going to the counter.",
+      image: hanamiCardapio,
+      deployUrl:"https://hanami-in.vercel.app/",
+      tags: ["React", "Typescript", "Tailwindcss", "motion"]
+    },
     {
       title: "TaskMaster",
       description: "It is a sleek, interactive web app for effortless task and note management. With a colorful UI, smooth navigation, and intuitive controls, it lets you add, view, and organize tasks and notes with ease. Built for efficiency, TaskMaster ensures a seamless experience, keeping everything structured and accessible to boost productivity. ",
