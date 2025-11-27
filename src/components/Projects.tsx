@@ -2,25 +2,26 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 
-// Importe as imagens
 import TodoListImg from "@/assets/TodoList.png";
 import MemoryGameImg from '@/assets/memorygame.png';
 import TravelMasterImg from '@/assets/TravelMaster.png';
-import hanamiCardapio from '@/assets/hanamiCardapio.png';
+import hanamiCardapioImg from '@/assets/hanamiCardapio.png';
+import financeFlowImg from '@assets/financeFlow.png';
+
 
 export default function Projects({ darkMode }: { darkMode: boolean }) {
   const projects = [
     {
       title: "Hanami Caféteria",
       description: "Hanami is an online menu project, made for a coffee shop, using react, typescript and motion for a friendly and intuitive interface, we have the possibility of adding the product to the bag, informing the table and the desired payment method, allowing the person to place the order without going to the counter.",
-      image: hanamiCardapio,
+      image: hanamiCardapioImg,
       deployUrl:"https://hanami-in.vercel.app/",
       tags: ["React", "Typescript", "Tailwindcss", "motion"]
     },
     {
       title: "TaskMaster",
       description: "It is a sleek, interactive web app for effortless task and note management. With a colorful UI, smooth navigation, and intuitive controls, it lets you add, view, and organize tasks and notes with ease. Built for efficiency, TaskMaster ensures a seamless experience, keeping everything structured and accessible to boost productivity. ",
-      image: TodoListImg, // Changed to webp for better performance
+      image: TodoListImg, 
       repoUrl: "https://github.com/EveeSilvaa/todo-list", 
       deployUrl: "https://todo-list-r7xi-eveesilvaas-projects.vercel.app/",
       tags: ["React", "TypeScript", "TailwindCSS"]
@@ -39,8 +40,16 @@ export default function Projects({ darkMode }: { darkMode: boolean }) {
       image: TravelMasterImg,
       repoUrl: "https://github.com/EveeSilvaa/Formulario-Login", 
       deployUrl: "https://formulario-login-hazel.vercel.app/",
-      tags: ["React", "Axios", "CSS3", "Next.js", "Context API"]
+      tags: ["React", "CSS3", "Next.js", "Context API"]
     },
+    {
+      title: "FinanceFlow - Gestão Financeira",
+      description: "A modern and intuitive web application for personal financial management, developed with React, TypeScript, and Tailwind CSS.",
+      image: financeFlowImg,
+      repoUrl: "https://github.com/EveeSilvaa/controles-contas", 
+      deployUrl: "https://controles-contas.vercel.app/",
+      tags: ["React", "motion", "vite", "typescript"]
+    }
   ];
 
   return (
