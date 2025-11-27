@@ -6,7 +6,7 @@ import TodoListImg from "@/assets/TodoList.png";
 import MemoryGameImg from '@/assets/memorygame.png';
 import TravelMasterImg from '@/assets/TravelMaster.png';
 import hanamiCardapioImg from '@/assets/hanamiCardapio.png';
-import financeFlowImg from '@assets/financeFlow.png';
+import financeFlowImg from '@/assets/financeFlow.png';
 
 
 export default function Projects({ darkMode }: { darkMode: boolean }) {
