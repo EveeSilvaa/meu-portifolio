@@ -116,8 +116,8 @@ const personalData: ProjectData[] = [
   {
     key: 'travel',
     image: TravelMasterImg,
-    repoUrl: 'https://github.com/EveeSilvaa/Formulario-Login',
-    deployUrl: 'https://formulario-login-hazel.vercel.app/',
+    repoUrl: 'https://github.com/EveeSilvaa/Travel-Guide',
+    deployUrl: 'https://travel-guide-alpha-ebon.vercel.app/',
     tags: ['React', 'CSS3', 'Next.js', 'Context API'],
   },
   {
