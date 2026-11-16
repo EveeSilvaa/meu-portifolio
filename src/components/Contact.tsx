@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { FiSend, FiMail, FiLinkedin, FiGithub } from "react-icons/fi";
 import { useState } from "react";
+import { useLanguage } from "../i18n/useLanguage";
 
 
 export default function ContactForm({ darkMode }: { darkMode: boolean }) {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,14 +35,14 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
     
-    if (!formData.name.trim()) newErrors.name = 'Nome é obrigatório';
+    if (!formData.name.trim()) newErrors.name = t.contact.errors.name;
     if (!formData.email.trim()) {
-      newErrors.email = 'E-mail é obrigatório';
+      newErrors.email = t.contact.errors.email;
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'E-mail inválido';
+      newErrors.email = t.contact.errors.emailInvalid;
     }
-    if (!formData.subject.trim()) newErrors.subject = 'Assunto é obrigatório';
-    if (!formData.message.trim()) newErrors.message = 'Mensagem é obrigatória';
+    if (!formData.subject.trim()) newErrors.subject = t.contact.errors.subject;
+    if (!formData.message.trim()) newErrors.message = t.contact.errors.message;
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -72,7 +74,7 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
   return (
     <section 
       id="contact" 
-      className={`py-16 md:py-20 transition-colors duration-300 ${darkMode ? 'bg-black' : 'bg-white'}`}
+      className="py-16 md:py-20"
     >
       <div className="container mx-auto px-4 max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-4xl">
         {/* Seção de Informações */}
@@ -84,11 +86,10 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
           className="mb-12 md:mb-16 text-center"
         >
           <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-purple-400' : 'text-purple-600'} tracking-tight`}>
-            Let's Connect
+            {t.contact.title}
           </h2>
           <p className={`text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-            I'm always excited to explore new opportunities and collaborations.
-            Whether you want to discuss technology, have a project in mind, or just want to say hello - I'd love to hear from you!
+            {t.contact.intro}
           </p>
         </motion.div>
 
@@ -145,19 +146,19 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
               className={`mb-6 p-4 rounded-lg ${darkMode ? 'bg-green-900/30 border border-green-800' : 'bg-green-100 border border-green-200'} text-center`}
             >
               <p className={`font-medium ${darkMode ? 'text-green-400' : 'text-green-700'}`}>
-                Message sent successfully! I'll get back to you soon.
+                {t.contact.success}
               </p>
             </motion.div>
           )}
 
           <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
             <FiSend className={`${darkMode ? 'text-purple-400' : 'text-purple-600'}`} />
-            Send a Message
+            {t.contact.formTitle}
           </h3>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <motion.div whileHover={{ scale: 1.01 }} className="group">
-              <label className={`block mb-2 font-medium ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>Name*</label>
+              <label className={`block mb-2 font-medium ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>{t.contact.name}</label>
               <input
                 name="name"
                 value={formData.name}
@@ -174,7 +175,7 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.01 }} className="group">
-              <label className={`block mb-2 font-medium ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>E-mail*</label>
+              <label className={`block mb-2 font-medium ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>{t.contact.email}</label>
               <input
                 name="email"
                 value={formData.email}
@@ -191,7 +192,7 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.01 }} className="group">
-              <label className={`block mb-2 font-medium ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>Subject*</label>
+              <label className={`block mb-2 font-medium ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>{t.contact.subject}</label>
               <input
                 name="subject"
                 value={formData.subject}
@@ -208,7 +209,7 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.01 }} className="group">
-              <label className={`block mb-2 font-medium ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>Message*</label>
+              <label className={`block mb-2 font-medium ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>{t.contact.message}</label>
               <textarea
                 name="message"
                 value={formData.message}
@@ -238,7 +239,7 @@ export default function ContactForm({ darkMode }: { darkMode: boolean }) {
               } ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               type="submit"
             >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
+              {isSubmitting ? t.contact.sending : t.contact.send}
             </motion.button>
           </form>
         </motion.div>

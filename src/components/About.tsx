@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 import { DiJava } from "react-icons/di";
+import { FaBriefcase } from "react-icons/fa";
+import ScrollColorText from "./scroll/ScrollColorText";
+import Reveal from "./scroll/Reveal";
+import { useLanguage } from "../i18n/useLanguage";
 import { 
   SiReact, SiNodedotjs, SiTypescript, SiStrapi, SiPython, 
   SiNextdotjs, SiJavascript, SiMysql, SiExpress, SiCss3, 
@@ -7,6 +11,7 @@ import {
 } from "react-icons/si";
 
 export default function About({ darkMode }: { darkMode: boolean }) {
+  const { t } = useLanguage();
   const skills = [
     {icon: <SiReact size={40} />, name: "React"},  
     {icon: <SiNodedotjs size={40} />, name: "Node.js"},
@@ -29,8 +34,8 @@ export default function About({ darkMode }: { darkMode: boolean }) {
   return (
     <>
       {/* Seção Sobre Mim */}
-      <section id="about" className={`snap-start min-h-screen ${darkMode ? 'bg-black' : 'bg-white'}`}>
-        <div className="container mx-auto px-4 pt-24 pb-16">
+      <section id="about" className="relative">
+        <div className="container mx-auto px-4 pt-16 md:pt-24 pb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -38,28 +43,30 @@ export default function About({ darkMode }: { darkMode: boolean }) {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h2 className={`text-4xl md:text-5xl font-bold mb-8 ${darkMode ? 'text-purple-400' : 'text-purple-600'} tracking-tight`}>
-              About Me
+            <h2 className={`text-4xl md:text-6xl font-bold mb-8 ${darkMode ? 'text-purple-400' : 'text-purple-600'} tracking-tight drop-shadow-[0_0_24px_rgba(168,85,247,0.35)]`}>
+              {t.about.title}
             </h2>
-            <p className={`text-xl max-w-3xl mx-auto mb-12 leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              I am a passionate full-stack developer focused on creating innovative and user-centric digital solutions.
-              With experience in modern web technologies such as React, Node.js, Java and TypeScript.
-            </p>
+            <ScrollColorText
+              darkMode={darkMode}
+              className="text-2xl md:text-3xl font-semibold max-w-3xl mx-auto mb-6 leading-snug justify-center"
+              text={t.about.intro}
+            />
+            <Reveal delay={0.1}>
+              <p className={`text-base mb-12 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                {t.about.seeWhere}{' '}
+                <a href="https://movtec.com.br/" target="_blank" rel="noopener noreferrer" className={`font-semibold ${darkMode ? 'text-purple-400' : 'text-purple-600'} hover:underline underline-offset-4`}>movtec.com.br</a>
+              </p>
+            </Reveal>
 
             <div className={`max-w-3xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
               <ul className="space-y-10 mb-12">
-                {[
-                  "🛠️ Developing performant web applications with clean code",
-                  "🎨 Crafting intuitive UI/UX designs with Figma",
-                  "🌐 Implementing responsive cross-device designs",
-                  "🔄 Would like an opportunity to collaborate in agile teams for impactful projects"
-                ].map((item, index) => (
+                {t.about.bullets.map((item, index) => (
                   <motion.li
                     key={index}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.15 + 0.3, duration: 0.5 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ delay: index * 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                     className="flex items-center gap-6 bg-gradient-to-r from-transparent via-purple-50/5 to-transparent p-4 rounded-lg hover:via-purple-50/10 transition-all"
                   >
                     <span className="text-2xl">{item.split(' ')[0]}</span>
@@ -77,7 +84,7 @@ export default function About({ darkMode }: { darkMode: boolean }) {
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-25"></div>
                 <p className={`relative text-xl italic p-6 rounded-lg ${darkMode ? 'bg-gray-800 text-purple-400' : 'bg-white text-purple-600'} shadow-xl`}>
-                  "Bringing problem-solving creativity and continuous learning to every project."
+                  {t.about.quote}
                 </p>
               </motion.div>
             </div>
@@ -86,7 +93,7 @@ export default function About({ darkMode }: { darkMode: boolean }) {
       </section>
 
       {/* Seção Habilidades Técnicas */}
-      <section id="skills" className={`py-16 ${darkMode ? 'bg-black' : 'bg-white'}`}>
+      <section id="skills" className="py-16">
         <div className="container mx-auto px-4 pt-8 pb-12">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -94,17 +101,17 @@ export default function About({ darkMode }: { darkMode: boolean }) {
             viewport={{ once: true }}
             className={`text-3xl md:text-4xl font-bold mb-8 text-center ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}
           >
-            Technical Skills
+            {t.about.skillsTitle}
           </motion.h2>
           
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
             {skills.map((skill, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05, duration: 0.3 }}
+                initial={{ opacity: 0, scale: 0.6, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ delay: (index % 6) * 0.06, duration: 0.5, type: 'spring', bounce: 0.4 }}
                 whileHover={{
                   y: -5,
                   scale: 1.05,
@@ -124,8 +131,74 @@ export default function About({ darkMode }: { darkMode: boolean }) {
         </div>
       </section>
 
+      {/* Seção Experiência */}
+      <section id="experience" className="py-16">
+        <div className="container mx-auto px-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className={`text-3xl md:text-4xl font-bold mb-10 text-center ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}
+          >
+            {t.about.experienceTitle}
+          </motion.h2>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative max-w-3xl mx-auto"
+          >
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl blur opacity-20"></div>
+            <div className={`relative p-6 md:p-8 rounded-xl shadow-xl ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                <div className="flex items-start gap-4">
+                  <div className={`p-3 rounded-lg ${darkMode ? 'bg-gray-700 text-purple-400' : 'bg-purple-100 text-purple-600'}`}>
+                    <FaBriefcase size={24} />
+                  </div>
+                  <div>
+                    <h3 className={`text-xl font-semibold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+                      {t.about.expRole}
+                    </h3>
+                    <a
+                      href="https://movtec.com.br/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`font-medium ${darkMode ? 'text-purple-400' : 'text-purple-600'} hover:underline underline-offset-4`}
+                    >
+                      {t.about.expCompany}
+                    </a>
+                  </div>
+                </div>
+                <span className={`text-sm font-medium whitespace-nowrap px-3 py-1 rounded-full self-start ${darkMode ? 'bg-gray-700 text-purple-300' : 'bg-purple-100 text-purple-600'}`}>
+                  {t.about.expPeriod}
+                </span>
+              </div>
+
+              <ul className={`mt-6 space-y-3 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                {t.about.expBullets.map((item, index) => (
+                  <li key={index} className="flex gap-3">
+                    <span className={`mt-2 h-2 w-2 shrink-0 rounded-full ${darkMode ? 'bg-purple-400' : 'bg-purple-600'}`}></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-2 mt-6">
+                {["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Node.js"].map((tag) => (
+                  <span key={tag} className={`text-xs px-2 py-1 rounded-full ${darkMode ? 'bg-gray-700 text-purple-300' : 'bg-purple-100 text-purple-600'}`}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Seção Formação */}
-      <section id="education" className={`py-16 ${darkMode ? 'bg-black' : 'bg-white'}`}>
+      <section id="education" className="py-16">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -135,14 +208,14 @@ export default function About({ darkMode }: { darkMode: boolean }) {
             className="text-center"
           >
             <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}>
-              Training
+              {t.about.educationTitle}
             </h2>
             <div className={`max-w-2xl mx-auto text-lg ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
               <p className="mb-4">
-                <span className={`font-bold ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}>2023</span> - Currently...
+                <span className={`font-bold ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}>2023</span> - {t.about.eduPeriod}
               </p>
-              <p className="text-xl font-semibold mb-2">Faculty of Technology</p>
-              <p>Degree in Systems Analysis and Development</p>
+              <p className="text-xl font-semibold mb-2">{t.about.eduSchool}</p>
+              <p>{t.about.eduDegree}</p>
             </div>
           </motion.div>
         </div>
